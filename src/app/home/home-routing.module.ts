@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeNotFoundComponent } from './home/home-not-found/home-not-found.component';
+import { HomeIndexComponent } from './home-index/home-index.component';
 
 const routes: Routes = [
-  { path: '**', component: HomeNotFoundComponent }
+  { path: '', pathMatch: 'full', component: HomeIndexComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class HomeRoutingModule { }

@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "house-money-accountant-web": {
@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "house-money-accountant-web"
+    }
+  },
+  "defaultProject": "house-money-accountant-web",
+  "cli": {
+    "analytics": "a493784d-7f21-41a4-8db4-00e194d9c5c0"
+  }
 }
