@@ -29,6 +29,14 @@
             "scripts": []
           },
           "configurations": {
+            "development": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ]
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -65,6 +73,9 @@
             "browserTarget": "house-money-accountant-web:build"
           },
           "configurations": {
+            "development": {
+              "browserTarget": "house-money-accountant-web:build:development"
+            },
             "production": {
               "browserTarget": "house-money-accountant-web:build:production"
             }
@@ -113,6 +124,9 @@
             "devServerTarget": "house-money-accountant-web:serve"
           },
           "configurations": {
+            "development": {
+              "devServerTarget": "house-money-accountant-web:serve:development"
+            },
             "production": {
               "devServerTarget": "house-money-accountant-web:serve:production"
             }
