@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
-import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { SocialLoginModule, GoogleLoginProvider, AuthServiceConfig } from 'angularx-social-login';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { SocialLoginInterceptor } from 'src/interceptors/social-login/social-login.interceptor';
 import { environment } from 'src/environments/environment';
+import { HomeModule } from './home/home.module';
+import { HouseModule } from './house/house.module';
+import { UserModule } from './user/user.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeModule } from './home/home.module';
 
 const authServiceConfig = new AuthServiceConfig([
   {
@@ -19,16 +24,24 @@ const authServiceConfig = new AuthServiceConfig([
     AppComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
-    RouterModule,
     SocialLoginModule,
     HomeModule,
-    AppRoutingModule
+    HouseModule,
+    UserModule,
+    AppRoutingModule,
+    ModalModule.forRoot()
   ],
   providers: [
     {
       provide: AuthServiceConfig,
       useValue: authServiceConfig
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: SocialLoginInterceptor,
+      multi: true
     }
   ],
   bootstrap: [AppComponent]

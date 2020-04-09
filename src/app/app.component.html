@@ -24,16 +24,16 @@
       </li>
     </ul>
     <ul class="navbar-nav ml-auto nav-flex-icons">
-      <li *ngIf="!user" class="nav-item">
+      <li *ngIf="!socialUser" class="nav-item">
         <a (click)="onLoginClick()" class="nav-link">
           <i class="fas fa-key"></i>
           Login
         </a>
       </li>
-      <li *ngIf="user" class="nav-item dropdown">
+      <li *ngIf="socialUser" class="nav-item dropdown">
         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
           class="nav-link dropdown-toggle nav-avatar-dropdown">
-          <img [src]="user.photoUrl" height="35" class="rounded-circle z-depth-0">
+          <img [src]="socialUser.pictureUrl" height="35" class="rounded-circle z-depth-0">
         </a>
         <div class="dropdown-menu dropdown-menu-right dropdown-default">
           <a class="dropdown-item text-info">

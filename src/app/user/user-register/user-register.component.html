@@ -1,0 +1,39 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title">
+      User registration
+    </h5>
+    <button type="button" (click)="onCancelClick()" class="close">
+      &times;
+    </button>
+  </div>
+  <div class="modal-body">
+    <p *ngIf="socialUser">
+      Hi, {{ socialUser.firstName }}!
+    </p>
+
+    <p>
+      We are glad that you decided to use our system,
+      but we want to know that some of your personal data will be stored before your registration.
+    </p>
+
+    <p>
+      We will store your email, first and last names and picture url.
+      This will be needed to display house owner and members.
+    </p>
+
+    <p>
+      For now, not even a byte of your data is stored in our servers.
+      If you don't want to process - just click "Cancel" button.
+      You will be sign out from the system immediately.
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" (click)="onRegisterClick()" class="btn btn-primary">
+      Register
+    </button>
+    <button type="button" (click)="onCancelClick()" class="btn btn-secondary">
+      Cancel
+    </button>
+  </div>
+</div>
