@@ -33,10 +33,10 @@
       <li *ngIf="socialUser" class="nav-item dropdown">
         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
           class="nav-link dropdown-toggle nav-avatar-dropdown">
-          <img [src]="socialUser.pictureUrl" height="35" class="rounded-circle z-depth-0">
+          <img [src]="socialUser.photoUrl" height="35" class="rounded-circle z-depth-0">
         </a>
         <div class="dropdown-menu dropdown-menu-right dropdown-default">
-          <a class="dropdown-item text-info">
+          <a routerLink="/profile" class="dropdown-item text-info">
             <i class="fas fa-user-circle"></i>
             Profile
           </a>

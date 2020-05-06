@@ -19,6 +19,10 @@ const authServiceConfig = new AuthServiceConfig([
   }
 ]);
 
+export function getAuthServiceConfig() {
+  return authServiceConfig;
+}
+
 @NgModule({
   declarations: [
     AppComponent
@@ -36,7 +40,7 @@ const authServiceConfig = new AuthServiceConfig([
   providers: [
     {
       provide: AuthServiceConfig,
-      useValue: authServiceConfig
+      useFactory: getAuthServiceConfig
     },
     {
       provide: HTTP_INTERCEPTORS,

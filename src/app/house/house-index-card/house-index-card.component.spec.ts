@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserDeleteComponent } from './user-delete.component';
+import { HouseIndexCardComponent } from './house-index-card.component';
 
-describe('UserDeleteComponent', () => {
-  let component: UserDeleteComponent;
-  let fixture: ComponentFixture<UserDeleteComponent>;
+describe('HouseIndexCardComponent', () => {
+  let component: HouseIndexCardComponent;
+  let fixture: ComponentFixture<HouseIndexCardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserDeleteComponent ]
+      declarations: [ HouseIndexCardComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UserDeleteComponent);
+    fixture = TestBed.createComponent(HouseIndexCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,32 @@
+<div routerLink="/houses/{{houseInfo.id}}" class="card mb-3">
+  <h3 class="card-header">
+    {{ houseInfo.name }}
+  </h3>
+
+  <div class="card-body">
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Owner:
+        <span class="badge badge-primary badge-pill">
+          <img [src]="houseInfo.ownerInfo.pictureUrl" height="13" class="rounded-circle z-depth-0">
+          {{ houseInfo.ownerInfo.givenName }}
+          {{ houseInfo.ownerInfo.familyName }}
+        </span>
+      </li>
+
+      <li *ngIf="houseInfo.memberInfos && houseInfo.memberInfos.length"
+        class="list-group-item d-flex justify-content-between align-items-center">
+        Members:
+        <span *ngFor="let memberInfo of houseInfo.memberInfos" class="badge badge-primary badge-pill">
+          <img [src]="memberInfo.pictureUrl" height="13" class="rounded-circle z-depth-0">
+          {{ memberInfo.givenName }}
+          {{ memberInfo.familyName }}
+        </span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="card-footer text-muted text-right">
+    Created on {{ houseInfo.creationDate | date }}
+  </div>
+</div>

@@ -1,31 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { BsModalRef } from 'ngx-bootstrap/modal';
-import { AuthService, SocialUser } from 'angularx-social-login';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'angularx-social-login';
 import { UserService } from 'src/services/user/user.service';
 
 @Component({
   templateUrl: './user-register.component.html',
   styleUrls: ['./user-register.component.css']
 })
-export class UserRegisterComponent implements OnInit {
-  public socialUser: SocialUser;
-
+export class UserRegisterComponent {
   constructor(
-    private bsModalRef: BsModalRef,
+    private router: Router,
     private authService: AuthService,
     private userService: UserService) { }
 
-  public ngOnInit(): void {
-    this.authService.authState
-      .subscribe((socialUser: SocialUser) => this.socialUser = socialUser);
-  }
-
   public onRegisterClick(): void {
     this.userService.registerUser()
-      .subscribe(() => this.bsModalRef.hide());
+      .subscribe(() => this.router.navigateByUrl('/profile'));
   }
 
   public onCancelClick(): void {
-    this.bsModalRef.hide();
+    this.authService.signOut()
+      .then(() => this.router.navigateByUrl('/'));
   }
 }
