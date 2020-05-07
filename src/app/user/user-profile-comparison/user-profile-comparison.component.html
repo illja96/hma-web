@@ -1,0 +1,185 @@
+<div *ngIf="isProfileNeededToSync" class="alert alert-dismissible alert-danger">
+  <button type="button" class="close" data-dismiss="alert">
+    &times;
+  </button>
+
+  <strong>
+    Oh snap!
+  </strong>
+  Seems, like you Google profile have changed.
+  It would be great if you sync your profile!
+</div>
+
+<div id="profilesComparisonAccordion">
+  <div class="card">
+    <div class="card-header" id="profilesComparisonHeader">
+      <h5 class="mb-0">
+        <button data-toggle="collapse" data-target="#profilesComparison" aria-expanded="{{isProfileNeededToSync}}"
+          aria-controls="profilesComparison" class="btn btn-block"
+          [class.btn-outline-secondary]="!isProfileNeededToSync" [class.btn-outline-danger]="isProfileNeededToSync">
+          Profiles comparison
+        </button>
+      </h5>
+    </div>
+
+    <div id="profilesComparison" aria-labelledby="profilesComparisonHeader" data-parent="#profilesComparisonAccordion"
+      class="collapse" [class.show]="isProfileNeededToSync">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-6">
+            <div class="card mb-3">
+              <h3 class="card-header text-center">
+                Google user profile
+              </h3>
+
+              <img *ngIf="googleUserProfile" [src]="googleUserProfile.photoUrl" alt="Google user profile photo"
+                style="width: 100%; display: block;">
+
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <span *ngIf="googleUserProfile">
+                    {{ googleUserProfile.id }}
+                  </span>
+                  <div *ngIf="!googleUserProfile" role="status" class="spinner-grow spinner-grow-sm text-secondary">
+                    <span class="sr-only">
+                      Loading...
+                    </span>
+                  </div>
+                </li>
+
+                <li class="list-group-item">
+                  <span *ngIf="googleUserProfile">
+                    {{ googleUserProfile.email }}
+                  </span>
+                  <div *ngIf="!googleUserProfile" role="status" class="spinner-grow spinner-grow-sm text-secondary">
+                    <span class="sr-only">
+                      Loading...
+                    </span>
+                  </div>
+                </li>
+
+                <li class="list-group-item">
+                  <span *ngIf="googleUserProfile">
+                    {{ googleUserProfile.firstName }}
+                  </span>
+                  <div *ngIf="!googleUserProfile" role="status" class="spinner-grow spinner-grow-sm text-secondary">
+                    <span class="sr-only">
+                      Loading...
+                    </span>
+                  </div>
+                </li>
+
+                <li class="list-group-item">
+                  <span *ngIf="googleUserProfile">
+                    {{ googleUserProfile.lastName }}
+                  </span>
+                  <div *ngIf="!googleUserProfile" role="status" class="spinner-grow spinner-grow-sm text-secondary">
+                    <span class="sr-only">
+                      Loading...
+                    </span>
+                  </div>
+                </li>
+              </ul>
+
+              <div class="card-footer text-muted">
+                <span *ngIf="googleUserProfile">
+                  Just now
+                </span>
+                <div *ngIf="!googleUserProfile" role="status" class="spinner-grow spinner-grow-sm text-secondary">
+                  <span class="sr-only">
+                    Loading...
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="card mb-3">
+              <h3 class="card-header text-center">
+                HMA user profile
+              </h3>
+
+              <img *ngIf="hmaUserProfile" [src]="hmaUserProfile.pictureUrl" alt="Google user profile photo"
+                style="width: 100%; display: block;">
+
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <span *ngIf="hmaUserProfile">
+                    {{ hmaUserProfile.googleId }}
+                  </span>
+                  <div *ngIf="!hmaUserProfile" role="status" class="spinner-grow spinner-grow-sm text-secondary">
+                    <span class="sr-only">
+                      Loading...
+                    </span>
+                  </div>
+                </li>
+
+                <li class="list-group-item">
+                  <span *ngIf="hmaUserProfile">
+                    {{ hmaUserProfile.email }}
+                  </span>
+                  <div *ngIf="!hmaUserProfile" role="status" class="spinner-grow spinner-grow-sm text-secondary">
+                    <span class="sr-only">
+                      Loading...
+                    </span>
+                  </div>
+                </li>
+
+                <li class="list-group-item">
+                  <span *ngIf="hmaUserProfile">
+                    {{ hmaUserProfile.givenName }}
+                  </span>
+                  <div *ngIf="!hmaUserProfile" role="status" class="spinner-grow spinner-grow-sm text-secondary">
+                    <span class="sr-only">
+                      Loading...
+                    </span>
+                  </div>
+                </li>
+
+                <li class="list-group-item">
+                  <span *ngIf="hmaUserProfile">
+                    {{ hmaUserProfile.familyName }}
+                  </span>
+                  <div *ngIf="!hmaUserProfile" role="status" class="spinner-grow spinner-grow-sm text-secondary">
+                    <span class="sr-only">
+                      Loading...
+                    </span>
+                  </div>
+                </li>
+              </ul>
+
+              <div class="card-footer text-muted">
+                <span *ngIf="hmaUserProfile">
+                  Last update
+                  {{ hmaUserProfile.lastUpdateDate | date }}
+                </span>
+                <div *ngIf="!hmaUserProfile" role="status" class="spinner-grow spinner-grow-sm text-secondary">
+                  <span class="sr-only">
+                    Loading...
+                  </span>
+                </div>
+              </div>
+
+              <div class="card-footer text-muted">
+                <span *ngIf="hmaUserProfile">
+                  Registered
+                  {{ hmaUserProfile.registrationDate | date }}
+                </span>
+                <div *ngIf="!hmaUserProfile" role="status" class="spinner-grow spinner-grow-sm text-secondary">
+                  <span class="sr-only">
+                    Loading...
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button (click)="onSyncClick()" [disabled]="!isProfileNeededToSync" class="btn btn-block btn-primary">
+          Sync
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -5,11 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserRoutingModule } from './user-routing.module';
 import { UserService } from 'src/services/user/user.service';
 import { UserIndexComponent } from './user-index/user-index.component';
+import { UserProfileComparisonComponent } from './user-profile-comparison/user-profile-comparison.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
 
 @NgModule({
   declarations: [
     UserIndexComponent,
+    UserProfileComparisonComponent,
     UserRegisterComponent
   ],
   imports: [

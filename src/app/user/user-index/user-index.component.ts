@@ -1,18 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { AuthService } from 'angularx-social-login';
 import { UserService } from 'src/services/user/user.service';
-import { UserInfo } from 'src/models/user/user-info.model';
 
 @Component({
   templateUrl: './user-index.component.html',
   styleUrls: ['./user-index.component.css']
 })
-export class UserIndexComponent implements OnInit {
-  public userInfo: UserInfo;
+export class UserIndexComponent {
+  constructor(
+    private authService: AuthService,
+    private userService: UserService) { }
 
-  constructor(private userService: UserService) { }
-
-  public ngOnInit(): void {
-    this.userService.getCurrentUserProfile()
-      .subscribe((userInfo: UserInfo) => this.userInfo = userInfo);
+  public onDeleteProfileClick(): void {
+    this.userService.deleteUserProfile()
+      .subscribe(() => this.authService.signOut());
   }
 }
