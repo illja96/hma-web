@@ -41,7 +41,7 @@ export class UserProfileComparisonComponent implements OnInit {
           this.googleUserProfile.email !== this.hmaUserProfile.email ||
           this.googleUserProfile.firstName !== this.hmaUserProfile.givenName ||
           this.googleUserProfile.lastName !== this.hmaUserProfile.familyName ||
-          this.googleUserProfile.photoUrl !== this.hmaUserProfile.pictureUrl
+          this.googleUserProfile.photoUrl !== this.hmaUserProfile.pictureUrl;
 
         if (isProfilesMissmatching) {
           this.isProfileNeededToSync = true;

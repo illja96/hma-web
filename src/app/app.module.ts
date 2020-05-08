@@ -5,6 +5,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SocialLoginModule, GoogleLoginProvider, AuthServiceConfig } from 'angularx-social-login';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { SocialLoginInterceptor } from 'src/interceptors/social-login/social-login.interceptor';
+import { SocialLoginGuard } from 'src/guards/social-login/social-login.guard';
 import { environment } from 'src/environments/environment';
 import { HomeModule } from './home/home.module';
 import { HouseModule } from './house/house.module';
@@ -42,6 +43,7 @@ export function getAuthServiceConfig() {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfig
     },
+    SocialLoginGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: SocialLoginInterceptor,

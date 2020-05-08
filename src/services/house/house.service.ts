@@ -5,6 +5,7 @@ import { AvailableHouses } from 'src/models/house/available-houses.model';
 import { Observable } from 'rxjs';
 import { HouseSimpleInfo } from 'src/models/house/house-simple-info.model';
 import { HouseCreationRequest } from 'src/models/house/house-creation-request.model';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class HouseService {
@@ -13,24 +14,53 @@ export class HouseService {
   public getAvailableHouses(): Observable<AvailableHouses> {
     const url = `${environment.apiServerBaseUrl}/houses`;
 
-    return this.httpClient.get<AvailableHouses>(url);
+    return this.httpClient.get<AvailableHouses>(url)
+      .pipe(
+        map((availableHouses: AvailableHouses) => {
+          availableHouses.owned.map((house: HouseSimpleInfo) => house.creationDate = new Date(house.creationDate));
+          availableHouses.memberOf.map((house: HouseSimpleInfo) => house.creationDate = new Date(house.creationDate));
+
+          availableHouses.owned = availableHouses.owned.sort((a, b) => this.compareHouses(b, a));
+          availableHouses.memberOf = availableHouses.memberOf.sort((a, b) => this.compareHouses(b, a));
+
+          return availableHouses;
+        })
+      );
   }
 
   public getHouseById(id: string): Observable<HouseSimpleInfo> {
     const url = `${environment.apiServerBaseUrl}/houses/${id}`;
 
-    return this.httpClient.get<HouseSimpleInfo>(url);
+    return this.httpClient.get<HouseSimpleInfo>(url)
+      .pipe(
+        map((houseSimpleInfo: HouseSimpleInfo) => {
+          houseSimpleInfo.creationDate = new Date(houseSimpleInfo.creationDate);
+          return houseSimpleInfo;
+        }));
   }
 
   public createHouse(houseCreationRequest: HouseCreationRequest): Observable<HouseSimpleInfo> {
     const url = `${environment.apiServerBaseUrl}/houses`;
 
-    return this.httpClient.post<HouseSimpleInfo>(url, houseCreationRequest);
+    return this.httpClient.post<HouseSimpleInfo>(url, houseCreationRequest)
+      .pipe(
+        map((houseSimpleInfo: HouseSimpleInfo) => {
+          houseSimpleInfo.creationDate = new Date(houseSimpleInfo.creationDate);
+          return houseSimpleInfo;
+        }));;
   }
 
   public deleteHouse(id: string): Observable<any> {
     const url = `${environment.apiServerBaseUrl}/houses/${id}`;
 
     return this.httpClient.delete(url);
+  }
+
+  private compareHouses(a: HouseSimpleInfo, b: HouseSimpleInfo): number {
+    const dateComparison = a.creationDate.getTime() - b.creationDate.getTime();
+    if (dateComparison !== 0) return dateComparison;
+
+    const nameComparison = a.name.localeCompare(b.name);
+    return nameComparison;
   }
 }

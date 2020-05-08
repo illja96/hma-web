@@ -1,0 +1,42 @@
+<div class="modal-header">
+  <h5 class="modal-title">
+    House creation
+  </h5>
+  <button type="button" (click)="bsModalRef.hide()" aria-label="Close" class="close">
+    <span aria-hidden="true">
+      &times;
+    </span>
+  </button>
+</div>
+
+<form [formGroup]="houseCreationRequestForm" (ngSubmit)="onHouseCreationRequestFormSubmit()">
+  <div class="modal-body">
+    <div class="form-group" [class.has-success]="name.valid" [class.has-danger]="name.invalid">
+      <label for="nameInput" class="form-control-label">
+        Name
+      </label>
+      <input id="nameInput" type="text" required formControlName="name" class="form-control"
+        [class.is-invalid]="name.invalid && (name.dirty || name.touched)">
+      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="invalid-feedback">
+        <div *ngIf="name.errors.required">
+          Name is required.
+        </div>
+        <div *ngIf="name.errors.minlength">
+          Name must be at least 5 characters long.
+        </div>
+        <div *ngIf="name.errors.maxlength">
+          Name must be less then 100 characters long.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="submit" [disabled]="!houseCreationRequestForm.valid" class="btn btn-primary">
+      Create
+    </button>
+    <button type="button" (click)="bsModalRef.hide()" class="btn btn-secondary">
+      Close
+    </button>
+  </div>
+</form>
