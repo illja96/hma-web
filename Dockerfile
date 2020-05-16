@@ -33,7 +33,7 @@ RUN sonar-scanner \
   -D sonar.login="${SONAR_LOGIN}"
 
 FROM nginx:latest
-COPY --from=build ./dockerEntryPoint.sh /
+COPY --from=build /app/dockerEntryPoint.sh /
 RUN chmod +x dockerEntryPoint.sh
 
 WORKDIR /usr/share/nginx/html
