@@ -22,11 +22,11 @@ FROM emeraldsquad/sonar-scanner:latest
 WORKDIR /usr/src
 COPY . ./
 RUN sonar-scanner \
-  -D "sonar.projectKey=${SONAR_PROJECTKEY}" \
-  -D "sonar.projectVersion=${BUILD_NUMBER}" \
-  -D "sonar.sources=." \
-  -D "sonar.host.url=${SONAR_HOST_URL}" \
-  -D "sonar.login=${SONAR_LOGIN}"
+  -Dsonar.projectKey=${SONAR_PROJECTKEY} \
+  -Dsonar.projectVersion=${BUILD_NUMBER} \
+  -Dsonar.sources=. \
+  -Dsonar.host.url=${SONAR_HOST_URL} \
+  -Dsonar.login=${SONAR_LOGIN}
 
 FROM nginx:latest
 WORKDIR /usr/share/nginx/html
