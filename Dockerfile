@@ -25,4 +25,4 @@ RUN sonar-scanner -Dsonar.projectKey="${SONAR_PROJECTKEY}" -Dsonar.projectVersio
 
 FROM nginx:latest
 WORKDIR /usr/share/nginx/html
-COPY --from=build /app/dist/house-money-accountant-web ./
+COPY --from=build /app/dist/hma-web ./

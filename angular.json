@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "house-money-accountant-web": {
+    "hma-web": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/house-money-accountant-web",
+            "outputPath": "dist/hma-web",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -70,21 +70,21 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "house-money-accountant-web:build"
+            "browserTarget": "hma-web:build"
           },
           "configurations": {
             "development": {
-              "browserTarget": "house-money-accountant-web:build:development"
+              "browserTarget": "hma-web:build:development"
             },
             "production": {
-              "browserTarget": "house-money-accountant-web:build:production"
+              "browserTarget": "hma-web:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "house-money-accountant-web:build"
+            "browserTarget": "hma-web:build"
           }
         },
         "test": {
@@ -121,21 +121,21 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "house-money-accountant-web:serve"
+            "devServerTarget": "hma-web:serve"
           },
           "configurations": {
             "development": {
-              "devServerTarget": "house-money-accountant-web:serve:development"
+              "devServerTarget": "hma-web:serve:development"
             },
             "production": {
-              "devServerTarget": "house-money-accountant-web:serve:production"
+              "devServerTarget": "hma-web:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "house-money-accountant-web",
+  "defaultProject": "hma-web",
   "cli": {
     "analytics": "a493784d-7f21-41a4-8db4-00e194d9c5c0"
   }

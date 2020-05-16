@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'house-money-accountant-web'`, () => {
+  it(`should have as title 'hma-web'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('house-money-accountant-web');
+    expect(app.title).toEqual('hma-web');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('house-money-accountant-web app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('hma-web app is running!');
   });
 });
