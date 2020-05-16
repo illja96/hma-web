@@ -21,7 +21,12 @@ RUN npm run ng build -- -c=production
 FROM emeraldsquad/sonar-scanner:latest
 WORKDIR /usr/src
 COPY . ./
-RUN sonar-scanner -D 'sonar.projectKey=${SONAR_PROJECTKEY}' -D 'sonar.projectVersion=${BUILD_NUMBER}' -D 'sonar.sources=.' -D 'sonar.host.url=${SONAR_HOST_URL}' -D 'sonar.login=${SONAR_LOGIN}'
+RUN sonar-scanner \
+  -D "sonar.projectKey=${SONAR_PROJECTKEY}" \
+  -D "sonar.projectVersion=${BUILD_NUMBER}" \
+  -D "sonar.sources=." \
+  -D "sonar.host.url=${SONAR_HOST_URL}" \
+  -D "sonar.login=${SONAR_LOGIN}"
 
 FROM nginx:latest
 WORKDIR /usr/share/nginx/html
