@@ -29,7 +29,7 @@ RUN sonar-scanner \
   -D sonar.projectKey="${SONAR_PROJECTKEY}" \
   -D sonar.projectVersion="${BUILD_NUMBER}" \
   -D sonar.sources="." \
-  -D sonar.host.url="${BUILD_NUMBER}" \
+  -D sonar.host.url="${SONAR_HOST_URL}" \
   -D sonar.login="${SONAR_LOGIN}"
 
 FROM nginx:latest
