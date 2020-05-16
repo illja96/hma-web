@@ -15,7 +15,7 @@ RUN test -n "${SONAR_LOGIN}" || (echo "SONAR_LOGIN argument not provided" && fal
 WORKDIR /app
 COPY . ./
 RUN npm install
-RUN npm run build -- -c=production
+RUN npm run ng build -- -c=production
 
 FROM emeraldsquad/sonar-scanner:latest
 WORKDIR /usr/src
