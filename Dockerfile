@@ -14,6 +14,7 @@ RUN test -n "${SONAR_LOGIN}" || (echo "SONAR_LOGIN argument not provided" && fal
 
 WORKDIR /app
 COPY . ./
+RUN npm version 1.0.${BUILD_NUMBER}
 RUN npm install
 RUN npm run ng build -- -c=production
 
