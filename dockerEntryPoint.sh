@@ -1,3 +1,5 @@
+#!/bin/bash
+
 set -xe : "${GOOGLE_OAUTH_CLIENT_ID?GOOGLE_OAUTH_CLIENT_ID argument was not provided}"
 set -xe : "${API_SERVER_BASE_URL?API_SERVER_BASE_URL argument was not provided}"
 
