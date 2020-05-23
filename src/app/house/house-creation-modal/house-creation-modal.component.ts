@@ -6,8 +6,7 @@ import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-house-creation-modal',
-  templateUrl: './house-creation-modal.component.html',
-  styleUrls: ['./house-creation-modal.component.css']
+  templateUrl: './house-creation-modal.component.html'
 })
 export class HouseCreationModalComponent {
   @Output()

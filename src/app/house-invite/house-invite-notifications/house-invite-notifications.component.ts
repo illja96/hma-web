@@ -4,8 +4,7 @@ import { HouseInviteSimpleInfo } from 'src/models/house-invite/house-invite-simp
 
 @Component({
   selector: 'app-house-invite-notifications',
-  templateUrl: './house-invite-notifications.component.html',
-  styleUrls: ['./house-invite-notifications.component.css']
+  templateUrl: './house-invite-notifications.component.html'
 })
 export class HouseInviteNotificationsComponent {
   public houseInvites: HouseInviteSimpleInfo[];

@@ -3,8 +3,7 @@ import { AuthService } from 'angularx-social-login';
 import { UserService } from 'src/services/user/user.service';
 
 @Component({
-  templateUrl: './user-index.component.html',
-  styleUrls: ['./user-index.component.css']
+  templateUrl: './user-index.component.html'
 })
 export class UserIndexComponent {
   constructor(

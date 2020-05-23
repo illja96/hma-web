@@ -7,8 +7,7 @@ import { HouseDeletionModalComponent } from '../house-deletion-modal/house-delet
 import { filter, switchMap } from 'rxjs/operators';
 
 @Component({
-  templateUrl: './house-info.component.html',
-  styleUrls: ['./house-info.component.css']
+  templateUrl: './house-info.component.html'
 })
 export class HouseInfoComponent implements OnInit {
   public houseInfo: HouseSimpleInfo;

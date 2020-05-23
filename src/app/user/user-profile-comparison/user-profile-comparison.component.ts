@@ -6,8 +6,7 @@ import { tap, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-user-profile-comparison',
-  templateUrl: './user-profile-comparison.component.html',
-  styleUrls: ['./user-profile-comparison.component.css']
+  templateUrl: './user-profile-comparison.component.html'
 })
 export class UserProfileComparisonComponent implements OnInit {
   public googleUserProfile: SocialUser;

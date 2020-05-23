@@ -4,8 +4,7 @@ import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-house-deletion-modal',
-  templateUrl: './house-deletion-modal.component.html',
-  styleUrls: ['./house-deletion-modal.component.css']
+  templateUrl: './house-deletion-modal.component.html'
 })
 export class HouseDeletionModalComponent {
   @Output()

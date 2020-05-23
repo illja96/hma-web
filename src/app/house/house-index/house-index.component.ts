@@ -8,8 +8,7 @@ import { HouseCreationRequest } from 'src/models/house/house-creation-request.mo
 
 @Component({
   selector: 'app-house-index',
-  templateUrl: './house-index.component.html',
-  styleUrls: ['./house-index.component.css']
+  templateUrl: './house-index.component.html'
 })
 export class HouseIndexComponent implements OnInit {
   public availableHouses: AvailableHouses;

@@ -3,8 +3,7 @@ import { AuthService, SocialUser } from 'angularx-social-login';
 
 @Component({
   selector: 'app-home-index',
-  templateUrl: './home-index.component.html',
-  styleUrls: ['./home-index.component.css']
+  templateUrl: './home-index.component.html'
 })
 export class HomeIndexComponent implements OnInit {
   public user: SocialUser;

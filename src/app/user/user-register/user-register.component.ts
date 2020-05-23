@@ -4,8 +4,7 @@ import { AuthService } from 'angularx-social-login';
 import { UserService } from 'src/services/user/user.service';
 
 @Component({
-  templateUrl: './user-register.component.html',
-  styleUrls: ['./user-register.component.css']
+  templateUrl: './user-register.component.html'
 })
 export class UserRegisterComponent {
   constructor(
