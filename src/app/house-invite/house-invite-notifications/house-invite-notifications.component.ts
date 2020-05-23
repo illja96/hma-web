@@ -18,16 +18,29 @@ export class HouseInviteNotificationsComponent {
     this.updateHouseInvites();
   }
 
-  public onAcceptHouseInviteClick(houseInviteId: string): void {
+  public onAcceptHouseInviteClick(houseInvite: HouseInviteSimpleInfo): void {
+    this.removeHouseInviteFromList(houseInvite);
 
+    // TODO: Add notification for user interaction
+    this.houseInviteService.acceptHouseInvite(houseInvite.id)
+      .subscribe(() => this.updateHouseInvites());
   }
 
-  public onDeclineHouseInviteClick(houseInviteId: string): void {
+  public onDeclineHouseInviteClick(houseInvite: HouseInviteSimpleInfo): void {
+    this.removeHouseInviteFromList(houseInvite);
 
+    // TODO: Add notification for user interaction
+    this.houseInviteService.declineHouseInvite(houseInvite.id)
+      .subscribe(() => this.updateHouseInvites());
   }
 
   private updateHouseInvites(): void {
     this.houseInviteService.getAvailableInvites()
       .subscribe((houseInvites: HouseInviteSimpleInfo[]) => this.houseInvites = houseInvites);
+  }
+
+  private removeHouseInviteFromList(houseInvite: HouseInviteSimpleInfo): void {
+    const houseInviteIndex = this.houseInvites.indexOf(houseInvite);
+    this.houseInvites = this.houseInvites.splice(houseInviteIndex, 1);
   }
 }
