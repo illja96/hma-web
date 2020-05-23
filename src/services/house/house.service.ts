@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { AvailableHouses } from 'src/models/house/available-houses.model';
-import { Observable } from 'rxjs';
 import { HouseSimpleInfo } from 'src/models/house/house-simple-info.model';
 import { HouseCreationRequest } from 'src/models/house/house-creation-request.model';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable()

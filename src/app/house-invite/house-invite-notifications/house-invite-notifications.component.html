@@ -1,0 +1,47 @@
+<a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link">
+  <i class="fas fa-bell"></i>
+  <span *ngIf="houseInvites" class="badge badge-pill badge-warning">
+    {{ houseInvites.length }}
+  </span>
+</a>
+<div class="dropdown-menu dropdown-menu-right dropdown-default">
+  <div *ngIf="!houseInvites" class="text-center">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">
+        Loading...
+      </span>
+    </div>
+  </div>
+  <div *ngIf="houseInvites && houseInvites.length === 0" class="text-center">
+    <span class="text-info">
+      You have no notifications
+    </span>
+  </div>
+  <div *ngFor="let houseInvite of houseInvites" class="dropdown-item">
+    <span class="text-justify">
+      You was invited to
+      <b>
+        {{ houseInvite.houseInfo.name }}
+      </b>
+      house.
+      <br>
+
+      From: {{ houseInvite.invitedBy.givenName }} {{ houseInvite.invitedBy.familyName }}
+      <hr>
+
+      <div class="row">
+        <div class="col-6">
+          <button type="button" class="btn btn-sm btn-block btn-primary">
+            Accept
+          </button>
+        </div>
+
+        <div class="col-6">
+          <button type="button" class="btn btn-sm btn-block btn-warning">
+            Decline
+          </button>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>

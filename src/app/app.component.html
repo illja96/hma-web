@@ -31,6 +31,9 @@
         </a>
       </li>
       <li *ngIf="socialUser" class="nav-item dropdown">
+        <app-house-invite-notifications></app-house-invite-notifications>
+      </li>
+      <li *ngIf="socialUser" class="nav-item dropdown">
         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
           class="nav-link dropdown-toggle nav-avatar-dropdown">
           <img [src]="socialUser.photoUrl" height="35" class="rounded-circle z-depth-0">

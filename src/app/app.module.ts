@@ -9,9 +9,11 @@ import { SocialLoginGuard } from 'src/guards/social-login/social-login.guard';
 import { environment } from 'src/environments/environment';
 import { HomeModule } from './home/home.module';
 import { HouseModule } from './house/house.module';
+import { HouseInviteModule } from './house-invite/house-invite.module';
 import { UserModule } from './user/user.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 const authServiceConfig = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
@@ -33,6 +35,7 @@ export function getAuthServiceConfig() {
     SocialLoginModule,
     HomeModule,
     HouseModule,
+    HouseInviteModule,
     UserModule,
     AppRoutingModule,
     ModalModule.forRoot()
