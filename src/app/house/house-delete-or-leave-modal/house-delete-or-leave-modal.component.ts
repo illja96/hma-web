@@ -1,12 +1,15 @@
-import { Component, Output } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs';
 
 @Component({
-  selector: 'app-house-deletion-modal',
-  templateUrl: './house-deletion-modal.component.html'
+  selector: 'app-house-delete-or-leave-modal',
+  templateUrl: './house-delete-or-leave-modal.component.html'
 })
-export class HouseDeletionModalComponent {
+export class HouseDeleteOrLeaveModalComponent {
+  @Input()
+  public isUserHouseOwner: boolean;
+
   @Output()
   public get deleteConfirmed(): Subject<boolean> {
     return this.deleteConfirmedSubject;

@@ -1,0 +1,32 @@
+<div class="modal-header">
+  <h5 *ngIf="isUserHouseOwner" class="modal-title">
+    House deletion
+  </h5>
+  <h5 *ngIf="!isUserHouseOwner" class="modal-title">
+    House leaving
+  </h5>
+  <button type="button" (click)="bsModalRef.hide()" aria-label="Close" class="close">
+    <span aria-hidden="true">
+      &times;
+    </span>
+  </button>
+</div>
+<div class="modal-body">
+  <p *ngIf="isUserHouseOwner">
+    Are you sure that you want to delete this house?
+  </p>
+  <p *ngIf="!isUserHouseOwner">
+    Are you sure that you want to leave this house?
+  </p>
+</div>
+<div class="modal-footer">
+  <button *ngIf="isUserHouseOwner" type="button" (click)="onDeleteClick()" class="btn btn-danger">
+    Delete
+  </button>
+  <button *ngIf="!isUserHouseOwner" type="button" (click)="onDeleteClick()" class="btn btn-warning">
+    Leave
+  </button>
+  <button type="button" (click)="bsModalRef.hide()" class="btn btn-secondary">
+    Close
+  </button>
+</div>

@@ -50,7 +50,7 @@ export class HouseService {
         }));;
   }
 
-  public deleteHouse(id: string): Observable<any> {
+  public deleteOrLeaveHouse(id: string): Observable<any> {
     const url = `${environment.apiServerBaseUrl}/houses/${id}`;
 
     return this.httpClient.delete(url);

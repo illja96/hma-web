@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HouseDeletionModalComponent } from './house-deletion-modal.component';
+import { HouseCreateModalComponent } from './house-create-modal.component';
 
-describe('HouseDeletionModalComponent', () => {
-  let component: HouseDeletionModalComponent;
-  let fixture: ComponentFixture<HouseDeletionModalComponent>;
+describe('HouseCreateModalComponent', () => {
+  let component: HouseCreateModalComponent;
+  let fixture: ComponentFixture<HouseCreateModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HouseDeletionModalComponent ]
+      declarations: [ HouseCreateModalComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HouseDeletionModalComponent);
+    fixture = TestBed.createComponent(HouseCreateModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

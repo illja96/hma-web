@@ -5,10 +5,10 @@ import { HouseCreationRequest } from 'src/models/house/house-creation-request.mo
 import { Subject } from 'rxjs';
 
 @Component({
-  selector: 'app-house-creation-modal',
-  templateUrl: './house-creation-modal.component.html'
+  selector: 'app-house-create-modal',
+  templateUrl: './house-create-modal.component.html'
 })
-export class HouseCreationModalComponent {
+export class HouseCreateModalComponent {
   @Output()
   public get houseCreationRequest(): Subject<HouseCreationRequest> {
     return this.houseCreationRequestSubject;

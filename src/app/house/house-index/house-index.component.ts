@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { HouseService } from 'src/services/house/house.service';
 import { AvailableHouses } from 'src/models/house/available-houses.model';
-import { HouseCreationModalComponent } from '../house-creation-modal/house-creation-modal.component';
+import { HouseCreateModalComponent } from '../house-create-modal/house-create-modal.component';
 import { switchMap } from 'rxjs/operators';
 import { HouseCreationRequest } from 'src/models/house/house-creation-request.model';
 
@@ -28,10 +28,10 @@ export class HouseIndexComponent implements OnInit {
   }
 
   public onCreateHouseClick(): void {
-    const houseCreationModalRef = this.bsModalService.show(HouseCreationModalComponent, { class: 'modal-lg' });
-    const houseCreationModal = houseCreationModalRef.content as HouseCreationModalComponent;
+    const houseCreateModalRef = this.bsModalService.show(HouseCreateModalComponent, { class: 'modal-lg' });
+    const houseCreateModal = houseCreateModalRef.content as HouseCreateModalComponent;
 
-    houseCreationModal.houseCreationRequest
+    houseCreateModal.houseCreationRequest
       .pipe(
         switchMap((request: HouseCreationRequest) => this.houseService.createHouse(request)))
       .subscribe(() => this.updateAvailableHouses());
