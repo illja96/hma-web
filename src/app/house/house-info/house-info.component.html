@@ -39,7 +39,7 @@
     <li class="nav-item">
       <a href="#members" data-toggle="tab" class="nav-link">
         Members
-        <span class="badge badge-pill badge-info">
+        <span *ngIf="houseInfo" class="badge badge-pill badge-info">
           {{ houseInfo.memberInfos.length }}
         </span>
       </a>
