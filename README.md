@@ -24,7 +24,10 @@ Required:
 
   Example of result file:
   ``` TypeScript
+  import { version } from '../../package.json';
+
   export const environment = {
+    version: version,
     production: false,
     googleOAuthClientId: 'Google OAuth 2.0 Client ID',
     apiServerBaseUrl: 'http://localhost:63216'

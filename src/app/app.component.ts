@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { SocialUser, AuthService, GoogleLoginProvider } from 'angularx-social-login';
 import { UserService } from 'src/services/user/user.service';
+import { environment } from 'src/environments/environment';
 import { filter, switchMap, catchError } from 'rxjs/operators';
 import { throwError, of } from 'rxjs';
 
@@ -12,12 +13,15 @@ import { throwError, of } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  public version: string;
   public socialUser: SocialUser;
 
   constructor(
     private router: Router,
     private authService: AuthService,
-    private userService: UserService) { }
+    private userService: UserService) {
+      this.version = environment.version;
+    }
 
   public ngOnInit(): void {
     this.authService.authState
