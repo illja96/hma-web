@@ -1,1 +1,25 @@
-<p>house-info-general-info works!</p>
+<dl class="row">
+  <dt class="col-3">
+    Name:
+  </dt>
+  <dd class="col-9">
+    {{ houseInfo.name }}
+  </dd>
+
+  <dt class="col-3">
+    Owner:
+  </dt>
+  <dd class="col-9">
+    <a href="mailto:{{houseInfo.ownerInfo.email}}">
+      {{ houseInfo.ownerInfo.givenName }}
+      {{ houseInfo.ownerInfo.familyName }}
+    </a>
+  </dd>
+
+  <dt class="col-3">
+    Created at:
+  </dt>
+  <dd class="col-9">
+    {{ houseInfo.creationDate | date:'full' }}
+  </dd>
+</dl>

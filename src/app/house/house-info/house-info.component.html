@@ -37,8 +37,11 @@
       </a>
     </li>
     <li class="nav-item">
-      <a href="#memebers" data-toggle="tab" class="nav-link">
+      <a href="#members" data-toggle="tab" class="nav-link">
         Members
+        <span class="badge badge-pill badge-info">
+          {{ houseInfo.memberInfos.length }}
+        </span>
       </a>
     </li>
     <li class="nav-item">
@@ -63,7 +66,7 @@
       <app-house-info-general-info *ngIf="houseInfo" [houseInfo]="houseInfo"></app-house-info-general-info>
     </div>
 
-    <div class="tab-pane fade" id="memebers">
+    <div class="tab-pane fade" id="members">
       <div *ngIf="!houseInfo" class="text-center">
         <div class="spinner-border spinner-border text-primary" role="status" style="width: 5rem; height: 5rem;">
           <span class="sr-only">

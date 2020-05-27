@@ -21,7 +21,9 @@
   <tbody>
     <tr *ngFor="let memberInfo of houseInfo.memberInfos">
       <td>
-        {{ memberInfo.email }}
+        <a href="mailto:{{memberInfo.email}}">
+          {{ memberInfo.email }}
+        </a>        
       </td>
       <td>
         {{ memberInfo.givenName }}
