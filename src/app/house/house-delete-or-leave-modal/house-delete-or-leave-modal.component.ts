@@ -3,7 +3,6 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs';
 
 @Component({
-  selector: 'app-house-delete-or-leave-modal',
   templateUrl: './house-delete-or-leave-modal.component.html'
 })
 export class HouseDeleteOrLeaveModalComponent {

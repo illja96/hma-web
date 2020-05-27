@@ -30,5 +30,61 @@
     </button>
   </div>
 
-  <p>house-info works!</p>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a href="#generalInfo" data-toggle="tab" class="nav-link active">
+        General info
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="#memebers" data-toggle="tab" class="nav-link">
+        Members
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="#transactions" data-toggle="tab" class="nav-link">
+        Transactions
+      </a>
+    </li>
+  </ul>
+
+  <br>
+
+  <div id="myTabContent" class="tab-content">
+    <div class="tab-pane fade show active" id="generalInfo">
+      <div *ngIf="!houseInfo" class="text-center">
+        <div class="spinner-border spinner-border text-primary" role="status" style="width: 5rem; height: 5rem;">
+          <span class="sr-only">
+            Loading...
+          </span>
+        </div>
+      </div>
+
+      <app-house-info-general-info *ngIf="houseInfo" [houseInfo]="houseInfo"></app-house-info-general-info>
+    </div>
+
+    <div class="tab-pane fade" id="memebers">
+      <div *ngIf="!houseInfo" class="text-center">
+        <div class="spinner-border spinner-border text-primary" role="status" style="width: 5rem; height: 5rem;">
+          <span class="sr-only">
+            Loading...
+          </span>
+        </div>
+      </div>
+
+      <app-house-info-members *ngIf="houseInfo" [houseInfo]="houseInfo"></app-house-info-members>
+    </div>
+
+    <div class="tab-pane fade" id="transactions">
+      <div *ngIf="!houseInfo" class="text-center">
+        <div class="spinner-border spinner-border text-primary" role="status" style="width: 5rem; height: 5rem;">
+          <span class="sr-only">
+            Loading...
+          </span>
+        </div>
+      </div>
+
+      <app-house-info-transactions *ngIf="houseInfo" [houseInfo]="houseInfo"></app-house-info-transactions>
+    </div>
+  </div>
 </div>

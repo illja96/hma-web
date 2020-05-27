@@ -5,7 +5,6 @@ import { HouseCreationRequest } from 'src/models/house/house-creation-request.mo
 import { Subject } from 'rxjs';
 
 @Component({
-  selector: 'app-house-create-modal',
   templateUrl: './house-create-modal.component.html'
 })
 export class HouseCreateModalComponent {

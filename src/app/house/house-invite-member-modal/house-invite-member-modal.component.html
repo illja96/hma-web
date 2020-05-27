@@ -1,0 +1,40 @@
+<div class="modal-header">
+  <h5 class="modal-title">
+    Invite new house member
+  </h5>
+  <button type="button" (click)="bsModalRef.hide()" aria-label="Close" class="close">
+    <span aria-hidden="true">
+      &times;
+    </span>
+  </button>
+</div>
+
+<form [formGroup]="houseInviteCreationRequestForm" (ngSubmit)="onHouseInviteCreationRequestFormSubmit()">
+  <div class="modal-body">
+    <div class="form-group" [class.has-success]="userEmail.valid" [class.has-danger]="userEmail.invalid">
+      <label for="userEmailInput" class="form-control-label">
+        User Email
+      </label>
+      <input id="userEmailInput" type="text" required formControlName="userEmail" class="form-control"
+        [class.is-invalid]="userEmail.invalid && (userEmail.dirty || userEmail.touched)">
+      <div *ngIf="userEmail.invalid && (userEmail.dirty || userEmail.touched)" class="invalid-feedback">
+        <div *ngIf="userEmail.errors.required">
+          User Email is required.
+        </div>
+
+        <div *ngIf="userEmail.errors.email">
+          User Email must be email.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="submit" [disabled]="!houseInviteCreationRequestForm.valid" class="btn btn-primary">
+      Invite
+    </button>
+    <button type="button" (click)="bsModalRef.hide()" class="btn btn-secondary">
+      Close
+    </button>
+  </div>
+</form>

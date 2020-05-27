@@ -1,0 +1,40 @@
+<table class="table table-hover table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">
+        Email
+      </th>
+      <th scope="col">
+        Given name
+      </th>
+      <th scope="col">
+        Family name
+      </th>
+      <th *ngIf="isUserHouseOwner" scope="col" class="text-right">
+        <button (click)="onInviteNewMemberClick()" class="btn btn-sm btn-outline-primary">
+          <i class="far fa-plus-square"></i>
+          Invite a new member
+        </button>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let memberInfo of houseInfo.memberInfos">
+      <td>
+        {{ memberInfo.email }}
+      </td>
+      <td>
+        {{ memberInfo.givenName }}
+      </td>
+      <td>
+        {{ memberInfo.familyName }}
+      </td>
+      <td *ngIf="isUserHouseOwner" class="text-right">
+        <button class="btn btn-sm btn-outline-warning">
+          <i class="fas fa-trash"></i>
+          Remove
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
