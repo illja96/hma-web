@@ -1,6 +1,7 @@
 import { Component, Input, Output } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs';
+import { HouseSimpleInfo } from 'src/models/house/house-simple-info.model';
 
 @Component({
   templateUrl: './house-delete-or-leave-modal.component.html'
@@ -8,6 +9,9 @@ import { Subject } from 'rxjs';
 export class HouseDeleteOrLeaveModalComponent {
   @Input()
   public isUserHouseOwner: boolean;
+
+  @Input()
+  public houseInfo: HouseSimpleInfo;
 
   @Output()
   public get deleteConfirmed(): Subject<boolean> {

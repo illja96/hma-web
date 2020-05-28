@@ -13,10 +13,18 @@
 </div>
 <div class="modal-body">
   <p *ngIf="isUserHouseOwner">
-    Are you sure that you want to delete this house?
+    Are you sure that you want to delete
+    <b>
+      {{ houseInfo.name }}
+    </b>
+    house?
   </p>
   <p *ngIf="!isUserHouseOwner">
-    Are you sure that you want to leave this house?
+    Are you sure that you want to leave
+    <b>
+      {{ houseInfo.name }}
+    </b>
+    house?
   </p>
 </div>
 <div class="modal-footer">

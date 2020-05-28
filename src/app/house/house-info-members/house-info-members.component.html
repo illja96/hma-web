@@ -33,7 +33,7 @@
           {{ memberInfo.familyName }}
         </td>
         <td *ngIf="isUserHouseOwner" class="text-right">
-          <button class="btn btn-sm btn-outline-warning">
+          <button (click)="onRemoveMemberClick(memberInfo)" class="btn btn-sm btn-outline-warning">
             <i class="fas fa-trash"></i>
             Remove
           </button>

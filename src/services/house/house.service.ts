@@ -56,6 +56,12 @@ export class HouseService {
     return this.httpClient.delete(url);
   }
 
+  public removeMember(houseId: string, userId: string): Observable<any> {
+    const url = `${environment.apiServerBaseUrl}/houses/${houseId}/members/${userId}`;
+
+    return this.httpClient.delete(url);
+  }
+
   private compareHouses(a: HouseSimpleInfo, b: HouseSimpleInfo): number {
     const dateComparison = a.creationDate.getTime() - b.creationDate.getTime();
     if (dateComparison !== 0) return dateComparison;

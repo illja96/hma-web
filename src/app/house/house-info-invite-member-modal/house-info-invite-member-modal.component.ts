@@ -6,9 +6,9 @@ import { Subject } from 'rxjs';
 import { HouseSimpleInfo } from 'src/models/house/house-simple-info.model';
 
 @Component({
-  templateUrl: './house-invite-member-modal.component.html'
+  templateUrl: './house-info-invite-member-modal.component.html'
 })
-export class HouseInviteMemberModalComponent {
+export class HouseInfoInviteMemberModalComponent {
   @Input()
   public houseInfo: HouseSimpleInfo;
 

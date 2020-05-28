@@ -35,7 +35,15 @@ export class HouseInfoComponent implements OnInit {
   }
 
   public onDeleteOrLeaveClick(): void {
-    const houseDeletionModalRef = this.bsModalService.show(HouseDeleteOrLeaveModalComponent, { initialState: { isUserHouseOwner: this.isUserHouseOwner } });
+    const houseDeletionModalRef = this.bsModalService.show(
+      HouseDeleteOrLeaveModalComponent,
+      {
+        initialState: {
+          isUserHouseOwner: this.isUserHouseOwner,
+          houseInfo: this.houseInfo
+        }
+      });
+
     const houseDeletionModal = houseDeletionModalRef.content as HouseDeleteOrLeaveModalComponent;
 
     houseDeletionModal.deleteConfirmed

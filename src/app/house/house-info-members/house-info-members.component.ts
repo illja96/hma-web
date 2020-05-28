@@ -1,11 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { HouseInviteService } from 'src/services/house-invite/house-invite.service';
 import { AuthService, SocialUser } from 'angularx-social-login';
 import { BsModalService } from 'ngx-bootstrap/modal';
-import { HouseInviteMemberModalComponent } from '../house-invite-member-modal/house-invite-member-modal.component';
+import { HouseService } from 'src/services/house/house.service';
+import { HouseInviteService } from 'src/services/house-invite/house-invite.service';
+import { HouseInfoInviteMemberModalComponent } from '../house-info-invite-member-modal/house-info-invite-member-modal.component';
+import { HouseInfoRemoveMemberModalComponent } from '../house-info-remove-member-modal/house-info-remove-member-modal.component';
 import { HouseSimpleInfo } from 'src/models/house/house-simple-info.model';
+import { UserSimpleInfo } from 'src/models/user/user-simple-info.model';
 import { HouseInviteCreationRequest } from 'src/models/house-invite/house-invite-creation-request.model';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-house-info-members',
@@ -18,6 +21,7 @@ export class HouseInfoMembersComponent implements OnInit {
   public isUserHouseOwner: boolean;
 
   constructor(
+    private houseService: HouseService,
     private houseInviteService: HouseInviteService,
     private authService: AuthService,
     private bsModalService: BsModalService) { }
@@ -28,13 +32,39 @@ export class HouseInfoMembersComponent implements OnInit {
   }
 
   public onInviteNewMemberClick(): void {
-    const houseInviteMemberModalRef = this.bsModalService.show(HouseInviteMemberModalComponent, { initialState: { houseInfo: this.houseInfo } });
-    const houseInviteMemberModal = houseInviteMemberModalRef.content as HouseInviteMemberModalComponent;
+    const houseInfoInviteMemberModalRef = this.bsModalService.show(
+      HouseInfoInviteMemberModalComponent,
+      { initialState: { houseInfo: this.houseInfo } });
+
+    const houseInfoInviteMemberModal = houseInfoInviteMemberModalRef.content as HouseInfoInviteMemberModalComponent;
 
     // TODO: Add invite creation confirmation on UI
-    houseInviteMemberModal.houseInviteCreationRequest
+    houseInfoInviteMemberModal.houseInviteCreationRequest
       .pipe(
-        switchMap((houseInviteCreationRequest: HouseInviteCreationRequest) => this.houseInviteService.createHouseInvite(houseInviteCreationRequest)))
+        switchMap((hicr: HouseInviteCreationRequest) => this.houseInviteService.createHouseInvite(hicr)))
       .subscribe();
+  }
+
+  public onRemoveMemberClick(memberInfo: UserSimpleInfo): void {
+    const houseInfoRemoveMemberModalRef = this.bsModalService.show(
+      HouseInfoRemoveMemberModalComponent,
+      {
+        initialState: {
+          houseInfo: this.houseInfo,
+          memberInfo: memberInfo
+        }
+      });
+
+    const houseInfoRemoveMemberModal = houseInfoRemoveMemberModalRef.content as HouseInfoRemoveMemberModalComponent;
+
+    // TODO: Add invite creation confirmation on UI
+    houseInfoRemoveMemberModal.removeConfirmed
+      .pipe(
+        filter((isRemoveConfirmed: boolean) => isRemoveConfirmed),
+        switchMap(() => this.houseService.removeMember(this.houseInfo.id, memberInfo.googleId)))
+      .subscribe(() => {
+        const memberInfoIndex = this.houseInfo.memberInfos.indexOf(memberInfo);
+        this.houseInfo.memberInfos = this.houseInfo.memberInfos.splice(memberInfoIndex, 1);
+      });
   }
 }

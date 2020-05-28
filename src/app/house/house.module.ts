@@ -11,9 +11,10 @@ import { HouseIndexComponent } from './house-index/house-index.component';
 import { HouseIndexCardComponent } from './house-index-card/house-index-card.component';
 import { HouseInfoComponent } from './house-info/house-info.component';
 import { HouseInfoGeneralInfoComponent } from './house-info-general-info/house-info-general-info.component';
+import { HouseInfoInviteMemberModalComponent } from './house-info-invite-member-modal/house-info-invite-member-modal.component';
 import { HouseInfoMembersComponent } from './house-info-members/house-info-members.component';
+import { HouseInfoRemoveMemberModalComponent } from './house-info-remove-member-modal/house-info-remove-member-modal.component';
 import { HouseInfoTransactionsComponent } from './house-info-transactions/house-info-transactions.component';
-import { HouseInviteMemberModalComponent } from './house-invite-member-modal/house-invite-member-modal.component';
 
 @NgModule({
   declarations: [
@@ -23,9 +24,10 @@ import { HouseInviteMemberModalComponent } from './house-invite-member-modal/hou
     HouseIndexCardComponent,
     HouseInfoComponent,
     HouseInfoGeneralInfoComponent,
+    HouseInfoInviteMemberModalComponent,
     HouseInfoMembersComponent,
-    HouseInfoTransactionsComponent,
-    HouseInviteMemberModalComponent
+    HouseInfoRemoveMemberModalComponent,
+    HouseInfoTransactionsComponent
   ],
   imports: [
     CommonModule,
